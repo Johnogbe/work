@@ -145,7 +145,12 @@ nav{
     
 }
 
- 
+ .drop:hover .pop{
+    
+    display: block;
+    display: flex;
+    flex-direction: column;
+}
 .mega-menu {
   display: none;
   position: absolute;
