@@ -90,6 +90,18 @@
     }
   });
 
+  document.addEventListener('DOMContentLoaded', () => {
+  // Scroll to Top Button
+  const scrollBtn = document.querySelector('.scroll-top');
+
+  window.addEventListener('scroll', () => {
+    if (window.scrollY > 230) {
+      scrollBtn.classList.add('show');
+    } else {
+      scrollBtn.classList.remove('show');
+    }
+  });
+
   scrollBtn.addEventListener('click', () => {
     window.scrollTo({
       top: 0,
@@ -97,10 +109,10 @@
     });
   });
 
-  // numbers
+  // Animated Numbers
   const numbers = document.querySelectorAll('.no');
   const counts = [98, 70, 10, 15]; // Final values
-  const duration = 2000; // Duration in ms (2 seconds)
+  const duration = 2000; // in milliseconds
 
   const observerOptions = {
     root: null,
@@ -141,9 +153,45 @@
 
   const observer = new IntersectionObserver(numberUpdate, observerOptions);
   const numbersSection = document.querySelector('.numbers');
-  observer.observe(numbersSection);
-});
+  if (numbersSection) {
+    observer.observe(numbersSection);
+  }
 
+  // Testimonials
+  const testimonials = [
+    {
+      name: "Sandy Williams",
+      role: "CEO, Business Co.",
+      text: "Adipiscing elit vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas.",
+      img: "profile1.jpg"
+    },
+    {
+      name: "John Doe",
+      role: "Marketing Lead, Startup Inc.",
+      text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam vitae justo vitae sapien.",
+      img: "expert.jpg"
+    },
+    {
+      name: "Lena Adams",
+      role: "Product Manager, TechSoft",
+      text: "Voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae.",
+      img: "image-13-300x300.jpg"
+    }
+  ];
+
+  let currentIndex = 0;
+
+  const profileImg = document.querySelector('.profile-img');
+  const testimonialText = document.querySelector('.testimonial-text');
+  const authorName = document.querySelector('.author h3');
+  const authorRole = document.querySelector('.author p');
+  const dots = document.querySelectorAll('.dot');
+
+  function updateTestimonial(index) {
+    const testimonial = testimonials[index];
+    profileImg.src = testimonial.img;
+    testimonialText.textContent = testimonial.text;
+    authorName.textContent = testimonial.name;
     authorRole.textContent = testimonial.role;
 
     // Update active dot
@@ -162,6 +210,16 @@
   });
 
   dots.forEach(dot => {
+    dot.addEventListener('click', () => {
+      const index = parseInt(dot.getAttribute('data-index'));
+      currentIndex = index;
+      updateTestimonial(currentIndex);
+    });
+  });
+
+  updateTestimonial(currentIndex);
+});
+
     dot.addEventListener('click', () => {
       const index = parseInt(dot.getAttribute('data-index'));
       currentIndex = index;
