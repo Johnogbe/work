@@ -8,14 +8,14 @@ document.addEventListener('DOMContentLoaded', () => {
       img: "profile1.jpg"
     },
     {
-      name: "John Doe",
-      role: "Marketing Lead, Startup Inc.",
+      name: "John Dou",
+      role: "Expert",
       text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam vitae justo vitae sapien.",
       img: "expert.jpg"
     },
     {
-      name: "Lena Adams",
-      role: "Product Manager, TechSoft",
+      name: "Paul freeman",
+      role: "Expert",
       text: "Voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae.",
       img: "image-13-300x300.jpg"
     }
