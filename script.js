@@ -1,4 +1,4 @@
-<script>
+
   document.addEventListener('DOMContentLoaded', () => {
     // Testimonials
     const testimonials = [
@@ -138,7 +138,7 @@
       observer.observe(numbersSection);
     }
   });
-</script>
+
 
                                 
         
